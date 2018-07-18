@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
-public class MultiFabBtn extends View implements MovableFabCallback{
+public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
 
     private Context mContext;
     private View mView;
@@ -54,7 +54,7 @@ public class MultiFabBtn extends View implements MovableFabCallback{
 
     public void init(Context context){
         this.mContext = context;
-        mView = LayoutInflater.from(mContext).inflate(R.layout.multifabbtn,null);
+        mView = LayoutInflater.from(mContext).inflate(R.layout.multifabbtn,this,true);
         mainClayout = mView.findViewById(R.id.mainClayout);
         mainFab = mView.findViewById(R.id.fab_main);
         fab01 = mView.findViewById(R.id.fab_01);
@@ -117,7 +117,7 @@ public class MultiFabBtn extends View implements MovableFabCallback{
         if (isFabOpen) {
             showFABMenu(viewWidth,viewHeight,dx,dy);
         }else {
-            closeFABMenu(viewWidth,viewHeight,dx,dy);
+            closeFABMenu();
         }
     }
 
@@ -255,7 +255,7 @@ public class MultiFabBtn extends View implements MovableFabCallback{
         isFabOpen = true;
     }
 
-    private void closeFABMenu(int viewWidth,int viewHeight,float fabDownX,float fabDownY){
+    private void closeFABMenu(){
 //        TransitionManager.beginDelayedTransition(mainClayout);
         if (fab01 != null) fab01.hide();
         if (fab02 != null) fab02.hide();
