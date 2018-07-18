@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.multi_fabbtn_plugin'
+group = 'com.github.ray360310'
 
 android {
     compileSdkVersion 28
