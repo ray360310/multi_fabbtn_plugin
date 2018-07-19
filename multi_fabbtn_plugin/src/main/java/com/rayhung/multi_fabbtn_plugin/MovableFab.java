@@ -1,6 +1,5 @@
 package com.rayhung.multi_fabbtn_plugin;
 
-
 import android.content.Context;
 import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;

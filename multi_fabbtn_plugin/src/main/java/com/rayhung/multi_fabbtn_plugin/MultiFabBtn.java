@@ -1,11 +1,13 @@
 package com.rayhung.multi_fabbtn_plugin;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.transition.TransitionManager;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -14,6 +16,8 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
 
     private Context mContext;
     private View mView;
+
+    private MultiFabBtnCallback mCallback;
 
     private ConstraintLayout mainClayout;
     private MovableFab mainFab;
@@ -26,14 +30,15 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
     private int viewHeight;
     private int viewWidth;
 
-    private int fabBtnWidth = 75;
-    private float btnDistance = 250f;
-    private float degree30x = Double.valueOf(btnDistance * Math.cos(Math.toRadians(23))).floatValue();
-    private float degree45x = Double.valueOf(btnDistance * Math.cos(Math.toRadians(45))).floatValue();
-    private float degree60x = Double.valueOf(btnDistance * Math.cos(Math.toRadians(67))).floatValue();
-    private float degree30y = Double.valueOf(btnDistance * Math.sin(Math.toRadians(23))).floatValue();
-    private float degree45y = Double.valueOf(btnDistance * Math.sin(Math.toRadians(45))).floatValue();
-    private float degree60y = Double.valueOf(btnDistance * Math.sin(Math.toRadians(67))).floatValue();
+    private int multiFabBtnWidth = Math.round(TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP, 42,getResources().getDisplayMetrics()));
+    private float fabBtnDistance = 250f;
+    private float degree30x = Double.valueOf(fabBtnDistance * Math.cos(Math.toRadians(23))).floatValue();
+    private float degree45x = Double.valueOf(fabBtnDistance * Math.cos(Math.toRadians(45))).floatValue();
+    private float degree60x = Double.valueOf(fabBtnDistance * Math.cos(Math.toRadians(67))).floatValue();
+    private float degree30y = Double.valueOf(fabBtnDistance * Math.sin(Math.toRadians(23))).floatValue();
+    private float degree45y = Double.valueOf(fabBtnDistance * Math.sin(Math.toRadians(45))).floatValue();
+    private float degree60y = Double.valueOf(fabBtnDistance * Math.sin(Math.toRadians(67))).floatValue();
 
     private boolean isFabOpen = false;
 
@@ -50,6 +55,19 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
     public MultiFabBtn(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
+    }
+
+    public void setCallbackListener(MultiFabBtnCallback mCallback){
+        this.mCallback = mCallback;
+    }
+
+    public void setMultiFabBtnWidth(int multiFabBtnWidth){
+        this.multiFabBtnWidth = Math.round(TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, multiFabBtnWidth,getResources().getDisplayMetrics()));
+    }
+
+    public void setfabBtnDistance(float fabBtnDistance){
+        this.fabBtnDistance = fabBtnDistance;
     }
 
     public void init(Context context){
@@ -77,31 +95,41 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
         fab01.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"fab01",Toast.LENGTH_SHORT).show();
+                if (mCallback != null) {
+                    mCallback.Fab01OnClick();
+                }
             }
         });
         fab02.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"fab02",Toast.LENGTH_SHORT).show();
+                if (mCallback != null) {
+                    mCallback.Fab02OnClick();
+                }
             }
         });
         fab03.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"fab03",Toast.LENGTH_SHORT).show();
+                if (mCallback != null) {
+                    mCallback.Fab03OnClick();
+                }
             }
         });
         fab04.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"fab04",Toast.LENGTH_SHORT).show();
+                if (mCallback != null) {
+                    mCallback.Fab04OnClick();
+                }
             }
         });
         fab05.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"fab05",Toast.LENGTH_SHORT).show();
+                if (mCallback != null) {
+                    mCallback.Fab05OnClick();
+                }
             }
         });
     }
@@ -151,14 +179,14 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
             fab03.show();
             fab04.show();
             fab05.show();
-            ConstraintLayout.LayoutParams cLp = new ConstraintLayout.LayoutParams(fabBtnWidth,fabBtnWidth);
+            ConstraintLayout.LayoutParams cLp = new ConstraintLayout.LayoutParams(multiFabBtnWidth, multiFabBtnWidth);
             fab01.setLayoutParams(cLp);
             fab02.setLayoutParams(cLp);
             fab03.setLayoutParams(cLp);
             fab04.setLayoutParams(cLp);
             fab05.setLayoutParams(cLp);
         }
-        fab01.setX(x-btnDistance);
+        fab01.setX(x- fabBtnDistance);
         fab01.setY(y);
         fab02.setX(x-degree30x);
         fab02.setY(y+degree30y);
@@ -167,7 +195,7 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
         fab04.setX(x-degree60x);
         fab04.setY(y+degree60y);
         fab05.setX(x);
-        fab05.setY(y+btnDistance);
+        fab05.setY(y+ fabBtnDistance);
         isFabOpen = true;
     }
 
@@ -179,14 +207,14 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
             fab03.show();
             fab04.show();
             fab05.show();
-            ConstraintLayout.LayoutParams cLp = new ConstraintLayout.LayoutParams(fabBtnWidth,fabBtnWidth);
+            ConstraintLayout.LayoutParams cLp = new ConstraintLayout.LayoutParams(multiFabBtnWidth, multiFabBtnWidth);
             fab01.setLayoutParams(cLp);
             fab02.setLayoutParams(cLp);
             fab03.setLayoutParams(cLp);
             fab04.setLayoutParams(cLp);
             fab05.setLayoutParams(cLp);
         }
-        fab01.setX(x+btnDistance);
+        fab01.setX(x+ fabBtnDistance);
         fab01.setY(y);
         fab02.setX(x+degree30x);
         fab02.setY(y+degree30y);
@@ -195,7 +223,7 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
         fab04.setX(x+degree60x);
         fab04.setY(y+degree60y);
         fab05.setX(x);
-        fab05.setY(y+btnDistance);
+        fab05.setY(y+ fabBtnDistance);
         isFabOpen = true;
     }
 
@@ -207,7 +235,7 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
             fab03.show();
             fab04.show();
             fab05.show();
-            ConstraintLayout.LayoutParams cLp = new ConstraintLayout.LayoutParams(fabBtnWidth,fabBtnWidth);
+            ConstraintLayout.LayoutParams cLp = new ConstraintLayout.LayoutParams(multiFabBtnWidth, multiFabBtnWidth);
             fab01.setLayoutParams(cLp);
             fab02.setLayoutParams(cLp);
             fab03.setLayoutParams(cLp);
@@ -215,14 +243,14 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
             fab05.setLayoutParams(cLp);
         }
         fab01.setX(x);
-        fab01.setY(y-btnDistance);
-        fab02.setX(x+degree30x);
-        fab02.setY(y-degree30y);
+        fab01.setY(y- fabBtnDistance);
+        fab02.setX(x+degree60x);
+        fab02.setY(y-degree60y);
         fab03.setX(x+degree45x);
         fab03.setY(y-degree45y);
-        fab04.setX(x+degree60x);
-        fab04.setY(y-degree60y);
-        fab05.setX(x+btnDistance);
+        fab04.setX(x+degree30x);
+        fab04.setY(y-degree30y);
+        fab05.setX(x+ fabBtnDistance);
         fab05.setY(y);
         isFabOpen = true;
     }
@@ -235,7 +263,7 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
             fab03.show();
             fab04.show();
             fab05.show();
-            ConstraintLayout.LayoutParams cLp = new ConstraintLayout.LayoutParams(fabBtnWidth,fabBtnWidth);
+            ConstraintLayout.LayoutParams cLp = new ConstraintLayout.LayoutParams(multiFabBtnWidth, multiFabBtnWidth);
             fab01.setLayoutParams(cLp);
             fab02.setLayoutParams(cLp);
             fab03.setLayoutParams(cLp);
@@ -243,14 +271,14 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
             fab05.setLayoutParams(cLp);
         }
         fab01.setX(x);
-        fab01.setY(y-btnDistance);
-        fab02.setX(x-degree30x);
-        fab02.setY(y-degree30y);
+        fab01.setY(y- fabBtnDistance);
+        fab02.setX(x-degree60x);
+        fab02.setY(y-degree60y);
         fab03.setX(x-degree45x);
         fab03.setY(y-degree45y);
-        fab04.setX(x-degree60x);
-        fab04.setY(y-degree60y);
-        fab05.setX(x-btnDistance);
+        fab04.setX(x-degree30x);
+        fab04.setY(y-degree30y);
+        fab05.setX(x- fabBtnDistance);
         fab05.setY(y);
         isFabOpen = true;
     }
@@ -263,6 +291,54 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
         if (fab04 != null) fab04.hide();
         if (fab05 != null) fab05.hide();
         isFabOpen = false;
+    }
+
+    public void setMainFabIcon(int ResId){
+        mainFab.setImageResource(ResId);
+    }
+
+    public void setFab01Icon(int ResId){
+        fab01.setImageResource(ResId);
+    }
+
+    public void setFab02Icon(int ResId){
+        fab02.setImageResource(ResId);
+    }
+
+    public void setFab03Icon(int ResId){
+        fab03.setImageResource(ResId);
+    }
+
+    public void setFab04Icon(int ResId){
+        fab04.setImageResource(ResId);
+    }
+
+    public void setFab05Icon(int ResId){
+        fab05.setImageResource(ResId);
+    }
+
+    public void setMainFabBackground(int ResId){
+        mainFab.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(ResId)));
+    }
+
+    public void setFab01Background(int ResId){
+        fab01.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(ResId)));
+    }
+
+    public void setFab02Background(int ResId){
+        fab02.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(ResId)));
+    }
+
+    public void setFab03Background(int ResId){
+        fab03.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(ResId)));
+    }
+
+    public void setFab04Background(int ResId){
+        fab04.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(ResId)));
+    }
+
+    public void setFab05Background(int ResId){
+        fab05.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(ResId)));
     }
 
 }
