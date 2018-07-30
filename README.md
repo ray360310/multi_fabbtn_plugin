@@ -53,9 +53,13 @@ Done.
 
 ## Usage Sample Pics
 
-![alt text](screenshots/screenshot_01.png "Initial")
-![alt text](screenshots/screenshot_02.png "Touch the main fab")
-![alt text](screenshots/screenshot_03.png "Move the main fab to change position")
+<img src="screenshots/screenshot_01.png" width="360" height="640">
+Initial
+<img src="screenshots/screenshot_02.png" width="360" height="640">
+Touch the main fab
+<img src="screenshots/screenshot_03.png" width="360" height="640">
+Move the main fab to change position
+
 
 
 
