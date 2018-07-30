@@ -50,3 +50,12 @@ Add some Function:
         mfab.setFab05Icon(R.mipmap.ic_launcher_round)
 
 Done. 
+
+## Usage Sample Pics
+
+![alt text](screenshots/screenshot_01.png "Initial")
+![alt text](screenshots/screenshot_02.png "Touch the main fab")
+![alt text](screenshots/screenshot_03.png "Move the main fab to change position")
+
+
+
