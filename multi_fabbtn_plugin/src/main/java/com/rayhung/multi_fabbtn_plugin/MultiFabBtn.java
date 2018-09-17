@@ -317,24 +317,90 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
         fab05.setImageResource(ResId);
     }
 
+    /**
+     * MainFab
+     * */
+    public void setMainFabElevation(float elevation){
+        mainFab.setElevation(elevation);
+    }
+
+    public void setMainFabImageResource(int ResId){
+        mainFab.setImageResource(ResId);
+    }
+
     public void setMainFabBackground(int ResId){
         mainFab.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(ResId)));
+    }
+
+    /**
+     * Fab01
+     * */
+    public void setFab01Elevation(float elevation){
+        fab01.setElevation(elevation);
+    }
+
+    public void setFab01ImageResource(int ResId){
+        fab01.setImageResource(ResId);
     }
 
     public void setFab01Background(int ResId){
         fab01.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(ResId)));
     }
 
+    /**
+     * Fab02
+     * */
+    public void setFab02Elevation(float elevation){
+        fab02.setElevation(elevation);
+    }
+
+    public void setFab02ImageResource(int ResId){
+        fab02.setImageResource(ResId);
+    }
+
     public void setFab02Background(int ResId){
         fab02.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(ResId)));
+    }
+
+    /**
+     * Fab03
+     * */
+    public void setFab03Elevation(float elevation){
+        fab03.setElevation(elevation);
+    }
+
+    public void setFab03ImageResource(int ResId){
+        fab03.setImageResource(ResId);
     }
 
     public void setFab03Background(int ResId){
         fab03.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(ResId)));
     }
 
+    /**
+     * Fab04
+     * */
+    public void setFab04Elevation(float elevation){
+        fab04.setElevation(elevation);
+    }
+
+    public void setFab04ImageResource(int ResId){
+        fab04.setImageResource(ResId);
+    }
+
     public void setFab04Background(int ResId){
         fab04.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(ResId)));
+    }
+
+    /**
+     * Fab05
+     * */
+    public void setFab05Elevation(float elevation){
+        fab05.setElevation(elevation);
+    }
+
+    public void setFab05ImageResource(int ResId){
+        fab05.setImageResource(ResId);
     }
 
     public void setFab05Background(int ResId){
