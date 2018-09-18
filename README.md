@@ -36,18 +36,44 @@ Add some Function:
         //optional
         mfab.setMultiFabBtnWidth(42)
         mfab.setfabBtnDistance(250f)
+        
+        //custom Fab function
+        mfab.setFabsTextSize(14f)
+        mfab.setFabsTextColor(R.color.Gray)
+        
+        //each fab setting
         mfab.setMainFabBackground(android.R.color.black)
-        mfab.setMainFabIcon(R.mipmap.ic_launcher_round)
+        mfab.setMainFabImageResource(R.mipmap.ic_launcher_round)
+        mfab.setMainFabElevation(0f)
+        
         mfab.setFab01Background(android.R.color.holo_orange_light)
-        mfab.setFab01Icon(R.mipmap.ic_launcher_round)
+        mfab.setFab01ImageResource(R.mipmap.ic_launcher_round)
+        mfab.setFab01Elevation(0f)
+        mfab.setFab01Text("Hello")
+        
         mfab.setFab02Background(android.R.color.holo_green_light)
-        mfab.setFab02Icon(R.mipmap.ic_launcher_round)
+        mfab.setFab02ImageResource(R.mipmap.ic_launcher_round)
+        mfab.setFab02Elevation(0f)
+        mfab.setFab02Text("Hello")
+        
         mfab.setFab03Background(android.R.color.holo_green_dark)
-        mfab.setFab03Icon(R.mipmap.ic_launcher_round)
+        mfab.setFab03ImageResource(R.mipmap.ic_launcher_round)
+        mfab.setFab03Elevation(0f)
+        mfab.setFab03Text("Hello")
+        
         mfab.setFab04Background(android.R.color.holo_blue_dark)
-        mfab.setFab04Icon(R.mipmap.ic_launcher_round)
+        mfab.setFab04ImageResource(R.mipmap.ic_launcher_round)
+        mfab.setFab04Elevation(0f)
+        mfab.setFab04Text("Hello")
+        
         mfab.setFab05Background(android.R.color.holo_blue_bright)
-        mfab.setFab05Icon(R.mipmap.ic_launcher_round)
+        mfab.setFab05ImageResource(R.mipmap.ic_launcher_round)
+        mfab.setFab05Elevation(0f)
+        mfab.setFab05Text("Hello")
+        
+        //If you want to setup each text color,use below functions
+        mfab.setFab01TextColor(R.color.Red) //change number 01~05
+        
 
 Done. 
 
@@ -59,6 +85,8 @@ Initial
 Touch the main fab
 <img src="screenshots/screenshot_03.png" width="360" height="640">
 Move the main fab to change position
+<img src="screenshots/screenshot_04.png" width="360" height="640">
+2018/09/18 Add TextView to show
 
 
 
