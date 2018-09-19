@@ -80,6 +80,13 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
 
     public void setfabBtnDistance(float fabBtnDistance){
         this.fabBtnDistance = fabBtnDistance;
+        degree30x = Double.valueOf(fabBtnDistance * Math.cos(Math.toRadians(23))).floatValue();
+        degree45x = Double.valueOf(fabBtnDistance * Math.cos(Math.toRadians(45))).floatValue();
+        degree60x = Double.valueOf(fabBtnDistance * Math.cos(Math.toRadians(67))).floatValue();
+        degree30y = Double.valueOf(fabBtnDistance * Math.sin(Math.toRadians(23))).floatValue();
+        degree45y = Double.valueOf(fabBtnDistance * Math.sin(Math.toRadians(45))).floatValue();
+        degree60y = Double.valueOf(fabBtnDistance * Math.sin(Math.toRadians(67))).floatValue();
+
     }
 
     public void init(Context context){
@@ -340,11 +347,11 @@ public class MultiFabBtn extends ConstraintLayout implements MovableFabCallback{
     }
 
     public void setFabsTextColor(int ResID){
-        fab01Txw.setTextColor(ResID);
-        fab02Txw.setTextColor(ResID);
-        fab03Txw.setTextColor(ResID);
-        fab04Txw.setTextColor(ResID);
-        fab05Txw.setTextColor(ResID);
+        fab01Txw.setTextColor(getResources().getColor(ResID));
+        fab02Txw.setTextColor(getResources().getColor(ResID));
+        fab03Txw.setTextColor(getResources().getColor(ResID));
+        fab04Txw.setTextColor(getResources().getColor(ResID));
+        fab05Txw.setTextColor(getResources().getColor(ResID));
     }
 
     /**
